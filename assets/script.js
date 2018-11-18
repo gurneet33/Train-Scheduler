@@ -29,6 +29,7 @@
     var formFrequency = $("#frequency-input").val().trim();
        
 
+    $("input").val("");
 
     // Save the train data in Firebase
   database.ref("train/").push({
