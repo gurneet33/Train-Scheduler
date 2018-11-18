@@ -1,0 +1,41 @@
+.page-header{
+    margin: 20px 0;
+}
+h1 {
+    font-family: 'Orbitron', bold, sans-serif;
+}
+/* .addimg {
+    background-image: url('./assets/images/vector2.jpg');
+    
+    border: 1px solid black;
+} */
+ #train-sch{
+    text-emphasis-style: bold;
+    font-size: 25px;
+ }
+ #db-div {
+position: relative;
+float: right;
+width: 70%;
+ }
+
+ /* sidenav */
+ #sidebar.active {
+    min-width: 80px;
+    /* max-width: 80px; */
+    text-align: center;
+}
+
+.sidenav {
+    float: left;
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    z-index: 1;
+    /* top: 0; */
+    /* left: 15%; */
+    /* background-image: url("./images/marble.jpg");  */
+    background-color: rgba(235, 231, 223, 0.8);
+    overflow-x: hidden;
+    padding-top: 20px;
+    }
