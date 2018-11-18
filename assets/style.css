@@ -1,9 +1,9 @@
 .page-header{
     margin: 20px 0;
-}
-h1 {
     font-family: 'Orbitron', bold, sans-serif;
+    font-size: 30px;
 }
+
 /* .addimg {
     background-image: url('./assets/images/vector2.jpg');
     

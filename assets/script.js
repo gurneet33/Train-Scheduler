@@ -9,7 +9,15 @@
     messagingSenderId: "748195688354"
   };
   firebase.initializeApp(config);
+
+  //  declaring variables
   var database = firebase.database();
+  var current;
+
+  function currentTime(){
+    current = moment().format('LT');
+  setTimeout(currentTime, 1000);  
+  }
 
     // on click in front-end
   $("#submit-button").on("click",function(event){
@@ -17,7 +25,7 @@
   
     var formTrainName = $("#name-input").val().trim();
     var formDestination = $("#destination-input").val().trim();
-    var formTrainTime = $("#train-time").val().trim();
+    var formStartTime = $("#train-time").val().trim();
     var formFrequency = $("#frequency-input").val().trim();
        
 
@@ -27,7 +35,8 @@
     databaseTrainName : formTrainName,
     databaseDestination : formDestination,
     databaseFrequency : formFrequency,
-    databaseTrainTime : formTrainTime
+    databaseStartTime : formStartTime,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
     
 
   }).then(function(){
@@ -35,12 +44,17 @@
   });
 
 })
-
-
+currentTime();
+console.log("time through funct"+current);
 // retreiving data from firebase
 
 database.ref("train/").on("child_added", function(snapshot){
     var databaseObjeact =  snapshot.val();
+    var startTimeConverted = (moment(databaseObjeact.databaseStartTime, "hh:mm").subtract(1, "years"));
+    var timeDiff = moment().diff(moment(startTimeConverted), "minutes");
+    var timeRemain = timeDiff % databaseObjeact.databaseFrequency;
+    var minToArrival = databaseObjeact.databaseFrequency - timeRemain;
+    var nextTrain = moment().add(minToArrival, "minutes");
 
     var tr = $("<tr>");
     var tname = $("<td>");
@@ -52,12 +66,16 @@ database.ref("train/").on("child_added", function(snapshot){
     tname.append(databaseObjeact.databaseTrainName)
     tdest.append(databaseObjeact.databaseDestination)
     tfreq.append(databaseObjeact.databaseFrequency)
-    // tnext.append(databaseObjeact.databaseTrainName)
-    // tname.append(databaseObjeact.databaseTrainName)
-    tr.append(tname,tdest,tfreq)
+    tnext.append(moment(nextTrain).format("LT"))
+    taway.append(minToArrival)
+    tr.append(tname,tdest,tfreq,tnext,taway)
     $("tbody").append(tr)
     // $("#tdest").append(databaseObjeact.databaseDestination)
 })
+
+setInterval(function() {
+  document.reload();
+}, 60000);
     // retreiving data from firebase
 // database.ref("train/").on("child_added", function(snapshot) {
 //     var databaseObject = snapshot.val();

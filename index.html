@@ -14,6 +14,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> 
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- link to css -->
+    <link rel="stylesheet" type="text/css" href="./assets/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/style.css">
   
     <!-- favicon -->
@@ -55,13 +56,13 @@
                         </div>
                 
                         <div class="form-group row">
-                          <label for="example-number-input">First Train Time(HH:mm - military time)</label>
-                          <input class="form-control" type="text" value="" id="train-time">
+                          <label for="example-time-input">First Train Time(HH:mm - military time)</label>
+                          <input class="form-control" type="time" value="12:00" id="train-time">
                         </div>
                 
                         <div class="form-group row">
                           <label for="example-number-input">Frequency(min)</label>
-                          <input class="form-control" type="number" min="50"  step="1" value="" id="frequency-input">
+                          <input class="form-control" type="number"   step="1" value="" id="frequency-input">
                         </div>
 
 
@@ -97,13 +98,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- <tr>
-                    <td id="tname" scope="col"></td>
-                    <td id="tdest" scope="col"></td>
-                    <td scope="col"></td>
-                    <td scope="col"></td>
-                    <td scope="col"></td>
-                  </tr>  -->
                 </tbody>
               </table>
       </div> <!-- end of col -->
@@ -120,9 +114,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Script -->
-  <script type="text/javascript" src="./assets/script.js"></script>
+  <script type="text/javascript" src="./assets/moment.js"></script>
 
-  <script type="text/javascript" src="./moment.js"></script>
+  <script type="text/javascript" src="./assets/script.js"></script>
 
 </body>
 
