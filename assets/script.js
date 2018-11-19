@@ -38,8 +38,6 @@
     databaseFrequency : formFrequency,
     databaseStartTime : formStartTime,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
-    
-
   }).then(function(){
         console.log("saved");
   });
@@ -71,6 +69,8 @@ database.ref("train/").on("child_added", function(snapshot){
     taway.append(minToArrival)
     tr.append(tname,tdest,tfreq,tnext,taway)
     $("tbody").append(tr)
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
 })
 
 setInterval(function() {
