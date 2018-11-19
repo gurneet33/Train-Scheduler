@@ -71,54 +71,14 @@ database.ref("train/").on("child_added", function(snapshot){
     taway.append(minToArrival)
     tr.append(tname,tdest,tfreq,tnext,taway)
     $("tbody").append(tr)
-    // $("#tdest").append(databaseObjeact.databaseDestination)
 })
 
 setInterval(function() {
-  document.reload();
+  location.reload();
 }, 60000);
-    // retreiving data from firebase
-// database.ref("train/").on("child_added", function(snapshot) {
-//     var databaseObject = snapshot.val();
 
-//    var tr = $("<tr>");
-//    tr.addClass("table table-striped");
-//    var tdName = $("<td>");
-//    var tdRate = $("<td>");
-//    var tdRole = $("<td>");
-//    var tdDate = $("<td>");
-//    var tdMonths = $("<td>");
-//    var tdMonthlyRate = $("<td>");
-   
-
-//     tdName.append(databaseObject.databaseTrainName);
-//     tdRate.append(databaseObject.databaseMinutesAway);
-//     tdRole.append(databaseObject.databaseDestination);
-//     tdDate.append(databaseObject.databaseFrequency);
-
-//     var startDate = databaseObject.databaseFrequency;
-
-//     //Todays date
-//     var endDate = new Date(); 
     
-//     var months = moment(new Date(endDate)).diff(new Date(startDate), 'months', true);
-//     var monthsRounded = Math.round(months,2);
 
-//     tdMonths.append(monthsRounded);
-
-//     var monthlyRate = months * databaseObject.databaseMinutesAway;
-
-//     var monthlyRateRounded = Math.round(monthlyRate,2);
-
-//     tdMonthlyRate.append("$" + monthlyRateRounded);
-
-//     tr.append(tdName,tdRate,tdRole,tdDate,tdMonths,tdMonthlyRate);
-
-//     $("#results").append(tr);
-//     // If any errors are experienced, log them to console.
-// }, function(errorObject) {
-//     console.log("The read failed: " + errorObject.code);
-//   });
 
   
 
